@@ -1,10 +1,12 @@
 'use strict';
 
-const express = require('express')
+const express = require('express');
 const app = express();
 const volleyball = require('volleyball');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
+const path = require('path');
+const models = require('./models');
 
 app.use(volleyball);
 
@@ -17,3 +19,18 @@ app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 
 app.use(express.static(path.join(__dirname, '/public')));
+
+app.get('/', function(req, res){
+  res.send('jambo!');
+});
+
+models.User.sync({})
+  .then(function(){
+    return models.Page.sync({});
+  })
+  .then(function(){
+    app.listen(3000, function(req, res){
+      console.log('server is listening');
+    });
+  })
+  .catch(console.error);
