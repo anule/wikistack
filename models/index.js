@@ -15,13 +15,13 @@ var Page = db.define('page', {
   date: {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
-    }   
+    }
   },
   {
     getterMethods:{
       route() {
         this.urlTitle = '/wiki/' + this.urlTitle
-        return this.urlTitle; 
+        return this.urlTitle;
       }
     }
   }
@@ -32,9 +32,9 @@ var User = db.define('user', {
   name: { type: Sequelize.STRING,
          allowNull: false,
         //  validate: {
-        //   min: 2, 
+        //   min: 2,
         //   max:20
-        //   } 
+        //   }
         },
   email: {
     type: Sequelize.STRING,
