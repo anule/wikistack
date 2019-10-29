@@ -16,7 +16,7 @@
     "nunjucks": "^3.0.1",
     "pg": "^6.4.1",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.10.0",
+    "sequelize": "^5.15.1",
     "volleyball": "^1.4.1"
   },
   "devDependencies": {
